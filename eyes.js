@@ -84,10 +84,19 @@ function type(val, opts) {
  * Inspects an object and prints the result based on the stream option
  */
 function inspect(obj, label, options) {
+	if (arguments.length == 2) {
+		if (label instanceof String) {
+			options = {};
+		}
+		else {
+			options = label;
+			label = '';
+		}
+	}
+
 	var opts = this.merge_opts(this.options, options);
 
 	if (opts.stream) {
-		//opts.stream.write.call(opts.stream, this.analyze(obj, label, opts));
 		opts.stream.write(this.analyze(obj, label, opts)+opts.nl);
 	}
 	else {
@@ -353,7 +362,6 @@ var defaults = {
 	'handlers'		: default_handlers,
 	'pretty_print'	: true,
 	'stream'		: process.stdout,
-	'max_length'	: 2048,
 	'max_itemlen'	: 40,
 	'max_depth'		: 5,
 	'indent'		: '   ',
