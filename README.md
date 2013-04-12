@@ -73,7 +73,7 @@ The simple options can be described easily. `pretty_print` controls the use of p
 `stream` should be set to the stream object used for output. By default, this is stdout. Setting `stream` to null will
 cause `eyes.inspect()` to return the formatted string rather than printing it. `max_itemlen` is the maximum string length
 for one array or object as printed before it is broken into multiple lines when pretty printing. `max_depth` is the
-maximum depth that `eyes.inspect()` will recursively print out. `indent` is a string used to indent the output.` Finally,
+maximum depth that `eyes.inspect()` will recursively print out. `indent` is a string used to indent the output. Finally,
 `nl` is the character that should be used for a newline.
 
 The fields `styles`, `skip`, `hide`, `handlers`, and `types` are more complicated, and each has its own set of defaults.
