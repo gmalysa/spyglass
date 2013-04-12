@@ -8,7 +8,6 @@
 
 require('colors');
 var _ = require('underscore');
-var util = require('util');
 
 /**
  * Constructor for an inspection instance, this accepts a list of options,
@@ -85,7 +84,7 @@ function type(val, opts) {
  */
 function inspect(obj, label, options) {
 	if (arguments.length == 2) {
-		if (label instanceof String) {
+		if (typeof label == 'string' || label instanceof String) {
 			options = {};
 		}
 		else {
