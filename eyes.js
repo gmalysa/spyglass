@@ -1,5 +1,5 @@
 /**
- * eyes.js - A customizable value inspector for Node.js
+ * eyes.js - A value inspection tool with lots of features
  *
  * usage:
  *       var eyes = new require('eyes')
@@ -220,7 +220,9 @@ function pp_helper(open, close, strings, depth, opts) {
 
 /**
  * Function for handling objects, keeps track of depth and limits
- * recursion
+ * recursion. Also applies type matching rules. Note that a type
+ * must be defined in the type array in order to pick it up in the
+ * array of types to hide
  */
 function object_handler(obj, type, depth, opts) {
 	if (_.keys(obj).length == 0) {
@@ -243,11 +245,7 @@ function object_handler(obj, type, depth, opts) {
 	var that = this;
 	var props = _.filter(master_list, function(v) {
 		// Check all the types to hide
-		if (opts.hide.functions && that.type(v[1], opts) == 'function')
-			return false;
-		if (opts.hide['undefined'] && that.type(v[1], opts) == 'undefined')
-			return false;
-		if (opts.hide['null'] && that.type(v[1], opts) == 'null')
+		if (_.contains(opts.hide.types, that.type(v[1], opts)))
 			return false;
 		
 		// Check to skip by literal or regex match
@@ -307,10 +305,8 @@ var default_skip = [];
  * Default settings for which special forms are omitted from an inspection output
  */
 var default_hide = {
-	'functions'		: true,
 	'hidden'		: true,
-	'undefined'		: true,
-	'null'			: true
+	'types'			: ['function', 'undefined', 'null']
 };
 
 /**
