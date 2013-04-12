@@ -1,14 +1,14 @@
 {
-  "name"          : "eyes",
-  "description"   : "a customizable value inspector",
-  "url"           : "http://github.com/cloudhead/eyes.js",
+  "name"          : "gm-eyes",
+  "description"   : "A value inspection tool with lots of features",
+  "repository"    : { "type" : "git", "url" : "https://github.com/gmalysa/eyes.js.git" },
   "keywords"      : ["inspector", "debug", "inspect", "print"],
-  "author"        : "Alexis Sellier <self@cloudhead.net>",
-  "contributors"  : [{ "name": "Charlie Robbins", "email": "charlie@nodejitsu.com" }],
+  "author"        : "Greg Malysa <gmalysa@stanford.edu>",
   "licenses"      : ["MIT"],
-  "main"          : "./lib/eyes",
-  "version"       : "0.1.8",
+  "main"          : "./eyes",
+  "version"       : "1.0.0",
   "scripts"       : { "test": "node test/*-test.js" },
-  "directories"   : { "lib": "./lib", "test": "./test" },
+  "directories"   : { "test": "./test" },
+  "dependencies"  : { "colors" : "*", "underscore" : ">= 1.4.0" },
   "engines"       : { "node": "> 0.1.90" }
 }

@@ -1,7 +1,16 @@
-eyes
+gm-eyes
 ====
 
-a customizable value inspector for Node.js
+A value inspection tool with lots of features
+
+Overview
+--------
+
+Initially, this started as a simple fork of the existing eyes.js library -- I wanted to modify the behavior
+in a few places. However, I opted to rewrite the entire package in order to make it easier for me to work with.
+
+This package is intended as a replacement for utils.inspect() to offer additional functionality and customizability.
+It provides color-based output using the established `colors` package. Custom display routines can be added for
 
 synopsis
 --------
