@@ -6,7 +6,7 @@
   "author"        : "Greg Malysa <gmalysa@stanford.edu>",
   "licenses"      : ["MIT"],
   "main"          : "./eyes",
-  "version"       : "1.0.0",
+  "version"       : "1.0.1",
   "scripts"       : { "test": "node test/*-test.js" },
   "directories"   : { "test": "./test" },
   "dependencies"  : { "colors" : "*", "underscore" : ">= 1.4.0" },
