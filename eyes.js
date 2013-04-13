@@ -286,7 +286,7 @@ function error_handler(obj, type, depth, opts) {
 	}
 
 	var rtn = sep + this.s(obj.stack.split('\n').join(sep), 'error', opts);
-	rtn = rtn + sep + this.s('Error properties: ', 'label', opts) + this.stringify(_.omit(obj, ['message', 'stack']), depth+1, opts);
+	rtn = rtn + sep + this.s('Error properties: ', 'error', opts) + this.stringify(_.omit(obj, ['message', 'stack']), depth+1, opts);
 	return rtn;
 }
 
