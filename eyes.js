@@ -275,6 +275,22 @@ function object_handler(obj, type, depth, opts) {
 }
 
 /**
+ * Function for printing out Error objects in a cleaner, more useful
+ * way than simply as objects with key-value pairs.
+ */
+function error_handler(obj, type, depth, opts) {
+	var sep = opts.nl + (new Array(depth+2).join(opts.indent));
+
+	if (!opts.pretty_print) {
+		sep = ' ';
+	}
+
+	var rtn = sep + this.s(obj.stack.split('\n').join(sep), 'error', opts);
+	rtn = rtn + sep + this.s('Error properties: ', 'label', opts) + this.stringify(_.omit(obj, ['message', 'stack']), depth+1, opts);
+	return rtn;
+}
+
+/**
  * String length calculator that ignores control codes
  */
 function strlen_nocc(str) {
@@ -300,6 +316,7 @@ var default_styles = {
 	'boolean'	: ['yellow'],
 	'regexp'	: ['red'],
 	'date'		: ['magenta'],
+	'error'		: ['red', 'bold'],
 	'null'		: ['grey'],
 	'undefined'	: ['grey']
 };
@@ -329,7 +346,8 @@ var default_subtypes = {
 	'regexp'	: RegExp,
 	'number'	: Number,
 	'boolean'	: Boolean,
-	'date'		: Date
+	'date'		: Date,
+	'error'		: Error
 };
 
 /**
@@ -346,7 +364,8 @@ var default_handlers = {
 	'regexp'	: regex_handler,
 	'function'	: func_handler,
 	'object'	: object_handler,
-	'array'		: array_handler 
+	'array'		: array_handler,
+	'error'		: error_handler
 };
 
 /**
@@ -384,6 +403,7 @@ _.extend(eyes.prototype, {
 	regex_handler	: regex_handler,
 	array_handler	: array_handler,
 	object_handler	: object_handler,
+	error_handler	: error_handler,
 	pp_helper		: pp_helper
 });
 
