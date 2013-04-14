@@ -176,7 +176,7 @@ therefore, could be
 to hide all fields that begin with an underscore, as well as any field whose name is exactly id.
 
 When specifying options for any of these compound types, the original types are not lost. Internally, the options are
-combined using _.extend(); this is applied specially for all fields except `skip`, which will be overrwitten by a given
+combined using `_.extend()` this is applied specially for all fields except `skip`, which will be overrwitten by a given
 array (`skip` is empty by default, so this isn't a big deal). Therefore, you do not (and really, should not) include
 the default values when augmenting one of the compound types with custom logic. Any matching fields will be overwritten
 with your values, and any new keys that you are adding will be added to the options array for the duration of the call

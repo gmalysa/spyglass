@@ -1,4 +1,4 @@
 test:
-	@@node test/eyes-test.js
+	@@node test/glasses-test.js
 
 .PHONY: test
