@@ -17,6 +17,10 @@ The output may be displayed in optional pretty-printed format or in a compact on
 
 ## Using spyglass
 
+Install via npm
+
+    npm install spyglass
+
 Include the module and create an instance of the inspection object
 
 ```javascript
