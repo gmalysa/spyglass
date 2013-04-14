@@ -1,8 +1,8 @@
 var util = require('util');
-var gls = require('../glasses');
-var glasses = new gls();
+var gls = require('../spyglass');
+var spyglass = new gls();
 
-glasses.inspect({
+spyglass.inspect({
     number: 42,
     string: "John Galt",
     regexp: /[a-z]+/,
@@ -14,7 +14,7 @@ glasses.inspect({
     object: {attr: []}
 }, "native types");
 
-glasses.inspect({
+spyglass.inspect({
     number: new(Number)(42),
     string: new(String)("John Galt"),
     regexp: new(RegExp)(/[a-z]+/),
@@ -28,11 +28,11 @@ var obj = {};
 obj.that = { self: obj };
 obj.self = obj;
 
-glasses.inspect(obj, "circular object");
-glasses.inspect({hello: 'moto'}, "small object");
-glasses.inspect({hello: new(Array)(6) }, "big object");
-glasses.inspect(["hello 'world'", 'hello "world"'], "quotes");
-glasses.inspect({
+spyglass.inspect(obj, "circular object");
+spyglass.inspect({hello: 'moto'}, "small object");
+spyglass.inspect({hello: new(Array)(6) }, "big object");
+spyglass.inspect(["hello 'world'", 'hello "world"'], "quotes");
+spyglass.inspect({
     recommendations: [{
         id: 'a7a6576c2c822c8e2bd81a27e41437d8',
         key: [ 'spree', 3.764316258020699 ],
@@ -47,7 +47,7 @@ glasses.inspect({
     }]
 }, 'complex');
 
-glasses.inspect([null], "null in array");
+spyglass.inspect([null], "null in array");
 
 var nostream = new gls({stream: null});
 

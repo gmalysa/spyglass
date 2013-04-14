@@ -1,4 +1,4 @@
-# glasses
+# spyglass
 
 A value inspection tool with lots of features, based on eyes.js
 
@@ -15,12 +15,12 @@ be omitted from the output based on type, exact name match, or regular expressio
 
 The output may be displayed in optional pretty-printed format or in a compact one-line format.
 
-## Using glasses
+## Using spyglass
 
 Include the module and create an instance of the inspection object
 
 ```javascript
-var gls = require('glasses');
+var gls = require('spyglass');
 gls = new gls();
 ```
 
@@ -154,7 +154,7 @@ object type. Each handler should have the following declaration:
 function handler(object, type, depth, opts)
 ```
 
-The context for each handler will be set to the glasses instance that is currently inspecting an object. This permits
+The context for each handler will be set to the spyglass instance that is currently inspecting an object. This permits
 handlers to make calls to internal functions such as `s()` very easily. If a handler will make recursive calls to
 `stringify()`, it should be sure to respect the depth argument and limit recursion, as the recursive limit must be
 applied within the handler itself in order to format the output meaningfully when it is reached (and allow the most
@@ -183,7 +183,7 @@ with your values, and any new keys that you are adding will be added to the opti
 to `inspect()`.
 
 The options object passed to `gls.inspect()` is the same as that passed to the constructor. Therefore, you can construct
-a glasses object that has your preferred settings stored as a default by simply passing your options to the constructor
+a spyglass object that has your preferred settings stored as a default by simply passing your options to the constructor
 rather than waiting until you call `gls.inspect()`.
 
 ## Examples

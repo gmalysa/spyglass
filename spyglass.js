@@ -1,9 +1,10 @@
 /**
- * eyes.js - A value inspection tool with lots of features
+ * spyglass.js - A value inspection tool with lots of features
  *
  * usage:
- *       var eyes = new require('eyes')
- *       console.log(eyes.inspect(somevar, 'somevar', options));
+ *       var gls = require('spyglass')
+ *       var spy = new gls();
+ *       spy.inspect(somevar, 'somevar', options);
  */
 
 require('colors');
@@ -13,7 +14,7 @@ var _ = require('underscore');
  * Constructor for an inspection instance, this accepts a list of options,
  * which may overwrite the default options
  */
-function eyes(options) {
+function spyglass(options) {
 	this.options = this.merge_opts(defaults, options);
 }
 
@@ -54,7 +55,7 @@ function s(str, name, opts) {
 /**
  * typeof replacement from the original eyes, written in a more functional style,
  * identifies several built-in objects by class name rather than the most generic
- * option
+ * option, allows for user-extension through the optiosn object
  */
 function type(val, opts) {
 	var basetype = typeof val;
@@ -389,7 +390,7 @@ var defaults = {
 /**
  * Create class definitions from functions
  */
-_.extend(eyes.prototype, {
+_.extend(spyglass.prototype, {
 	merge_opts		: merge_opts,
 	s				: s,
 	type			: type,
@@ -407,4 +408,4 @@ _.extend(eyes.prototype, {
 	pp_helper		: pp_helper
 });
 
-module.exports = eyes;
+module.exports = spyglass;
