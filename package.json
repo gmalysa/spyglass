@@ -1,6 +1,6 @@
 {
   "name"          : "spyglass",
-  "version"       : "1.0.0",
+  "version"       : "1.0.1",
   "description"   : "A value inspection tool with pretty printing, customizable colors, and powerful extension support for user-defined type inspection",
   "keywords"      : ["inspector", "debug", "inspect", "print", "type", "variable"],
   "author"        : "Greg Malysa <gmalysa@stanford.edu>",
