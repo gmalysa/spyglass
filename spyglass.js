@@ -153,6 +153,8 @@ function func_handler(obj, type, depth, opts) {
 function string_handler(obj, type, depth, opts) {
 	var str = obj.replace(/\\/g, '\\\\')
 					.replace(/\n/g, '\\n')
+					.replace(/\r/g, '\\r')
+					.replace(/\t/g, '\\t')
 					.replace(/\'/g, '\\\'')
 					.replace(/[\u0001-\u001F]/g, function (m) {
 						return '\\0' + m[0].charCodeAt(0).toString(8);
